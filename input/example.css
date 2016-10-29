@@ -1,0 +1,39 @@
+/* this comment will be removed */
+* { /* this comment will be removed */
+    font-family: sans-serif;
+} /* this comment will be removed */
+
+body {
+    margin: 0;
+}
+
+a, a:active, /* this
+comment
+will
+be
+removed */ a:visited {
+    color: /* this comment will be removed */ black;
+} /* this comment will be removed */
+
+      /* this comment will be removed */
+
+.active { /* this comment will be removed */
+    color: red !important;
+} /* this comment will be removed */
+
+a:hover { /* this comment will be removed */
+    color: blue;
+} /* this
+comment
+will
+be
+removed */
+
+article {
+    background-color: beige;
+    padding: 2em;
+}
+
+h1 {
+    background-color: beige;
+}
