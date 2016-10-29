@@ -26,16 +26,20 @@ $copied_counter = 0;
 $not_updated_counter = 0;
 $removed_counter = 0;
 
-// Build a list of files located in OUTPUT directory
-// Every time their counterpart is found in INPUT, that entry gets removed from the array
-$output = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(OUTPUT, FilesystemIterator::SKIP_DOTS | FilesystemIterator::CURRENT_AS_FILEINFO));
-foreach($output as $path => $splfileinfo) {
-	// Path and modification time are the only informations we'll need
-	$files_in_output_directory[substr($path, $output_len)] = $splfileinfo->getMTime();
+if(file_exists(OUTPUT)) {
+	// Build a list of files located in OUTPUT directory
+	// Every time their counterpart is found in INPUT, that entry gets removed from the array
+	$output = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(OUTPUT, FilesystemIterator::SKIP_DOTS | FilesystemIterator::CURRENT_AS_FILEINFO));
+	foreach($output as $path => $splfileinfo) {
+		// Path and modification time are the only informations we'll need
+		$files_in_output_directory[substr($path, $output_len)] = $splfileinfo->getMTime();
+	}
+	// Avoid possible bugs, chaos and destruction when reusing variable names (which shouldn't be done anyway)
+	unset($output, $path, $splfileinfo);
+	//println('Output directory ('.OUTPUT.') already contains '.count($files_in_output_directory).' files.');
+} else {
+	mkdir(OUTPUT);
 }
-// Avoid possible bugs, chaos and destruction when reusing variable names (which shouldn't be done anyway)
-unset($output, $path, $splfileinfo);
-//println('Output directory ('.OUTPUT.') already contains '.count($files_in_output_directory).' files.');
 
 // Build a list of files located in INPUT directory
 $input = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(INPUT, FilesystemIterator::SKIP_DOTS | FilesystemIterator::CURRENT_AS_FILEINFO));
