@@ -107,10 +107,19 @@ if($removed_counter > 0) {
 } else {
 	$removed_string = '';
 }
+
+$copied_total_counter = $updated_counter + $copied_counter;
+if($copied_total_counter > 0) {
+	$copied_string = " ($updated_counter rendered, $copied_counter copied)";
+} else {
+	$copied_string = '';
+}
 echo <<<EOT
+
 Build finished.
-Files rendered: $rendered_counter, actually changed: $updated_counter.
-Other files: $copied_counter copied, $not_updated_counter already up-to-date.$removed_string
+Rendered: $rendered_counter files.
+Updated: $copied_total_counter files$copied_string.
+Already up-to-date: $not_updated_counter files.$removed_string
 EOT;
 
 /**
