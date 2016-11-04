@@ -1,4 +1,9 @@
 <?php
+/*
+ * Copyright (c) 2016 Ludovico Pavesi
+ * Released under The MIT License (see LICENSE)
+ */
+
 define('INPUT', 'input'); // Input directory
 define('OUTPUT', 'output'); // Output directory
 

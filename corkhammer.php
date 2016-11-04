@@ -1,5 +1,9 @@
 #!/bin/php
 <?php
+/*
+ * Copyright (c) 2016 Ludovico Pavesi
+ * Released under The MIT License (see LICENSE)
+ */
 require 'config.php';
 // Check that needed constants and variables are available
 if(!isset($render)) {
