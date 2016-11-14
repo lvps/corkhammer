@@ -7,10 +7,6 @@
 println('Corkhammer 1.0 started.');
 require 'config.php';
 // Check that needed constants and variables are available
-if(!isset($render)) {
-	println('Missing $render from config.php!');
-	exit(1);
-}
 if(defined('INPUT')) {
 	$input_len = strlen('input' . DIRECTORY_SEPARATOR);
 } else {
@@ -21,6 +17,11 @@ if(defined('OUTPUT')) {
 	$output_len = strlen('output' . DIRECTORY_SEPARATOR);
 } else {
 	println('Missing OUTPUT constant from config.php!');
+	exit(1);
+}
+require 'rendering.php';
+if(!isset($render) || !is_array($render)) {
+	println('Missing $render from rendering.php!');
 	exit(1);
 }
 
