@@ -4,7 +4,7 @@
  * Copyright (c) 2016 Ludovico Pavesi
  * Released under The MIT License (see LICENSE)
  */
-println('Corkhammer 1.0 started.');
+println('Corkhammer 1.1 started.');
 require 'config.php';
 // Check that needed constants and variables are available
 if(defined('INPUT')) {
